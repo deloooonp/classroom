@@ -11,7 +11,7 @@ import "./App.css";
 import { Toaster } from "./components/refine-ui/notification/toaster";
 import { useNotificationProvider } from "./components/refine-ui/notification/use-notification-provider";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
-import { dataProvider } from "./providers/data";
+import { dataProvider } from "@/providers/data";
 
 import { BookOpen, Home } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
@@ -43,7 +43,7 @@ function App() {
                 {
                   name: "subjects",
                   list: "/subjects",
-                  create: "/subjects",
+                  create: "/subjects/create",
                   meta: { label: "Subjects", icon: <BookOpen /> },
                 },
               ]}
