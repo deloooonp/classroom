@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
-import aj from "../config/arcjet";
-import { ArcjetNodeRequest, slidingWindow } from "@arcjet/node";
+import type { ArcjetNodeRequest } from "@arcjet/node";
+import { slidingWindow } from "@arcjet/node";
+import aj from "../config/arcjet.js";
 
 const securityMiddleware = async (
   req: Request,
@@ -66,7 +67,7 @@ const securityMiddleware = async (
     }
 
     if (decision.isDenied() && decision.reason.isRateLimit()) {
-      return res.status(403).json({
+      return res.status(429).json({
         error: "Too many requests.",
         message,
       });
